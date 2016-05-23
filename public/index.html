@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<style>
+		#bienvenida
+		{
+			border: 1px solid #CCC;
+			margin: 10px;
+		}
+		#chat
+		{
+			margin: 10px;
+			border: 1px solid #CCC;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="bienvenida" class="well">
+		<h3>Hola, por hgjghjghj ingresa tu nombre para entrar al chat</h3>
+		<input type="text" id="nombre" class="form-control">
+		<button onclick="guardarNombre()">Entrar</button>
+
+		<div
+  		class="fb-like"
+  		data-share="true"
+  		data-width="450"
+  		data-show-faces="true">
+		</div>
+
+	</div>
+
+	
+	<div id="chat" class="well">
+		<h1>Bienvenid@ a mi super chat</h1>
+		<p>Solo puedes envíar mensajes, en una siguiente versión también lo verás!!</p>
+		<input type="text" id="mensaje" class="form-control">
+		<button onclick="enviarMensaje()">Enviar mensaje</button>
+		<button onclick="limpiarMensajes()">Limpiar mensajes</button>
+		<ul id="lista_mensajes" class="list-group"></ul>
+
+		<p>
+			<small style="font-size:10px;">Si haces uso de este chat aceptas eliminar los break's por el resto de tu vida</small>
+		</p>
+	</div>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '592110360965938',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+	<script>
+		var socket = io('/');
+		var nombre;
+		function guardarNombre()
+		{
+			nombre = $('#nombre').val();
+			$('#bienvenida').hide();
+			$('#chat').show();
+		}
+		function enviarMensaje()
+		{
+			socket.emit('chat', "<span class='label label-danger'>" +  nombre + "</span> : " + $('#mensaje').val()  );
+			$('#mensaje').val('');
+			$('#mensaje').focus();
+		}
+		function limpiarMensajes()
+		{
+			$('#lista_mensajes').html('');
+		}
+		socket.on('nuevo_mensaje', function (_msg)
+		{
+			$('#lista_mensajes').append('<li class="list-group-item">' + _msg + '</li>');
+		});
+	</script>
+</body>
+</html>
