@@ -18,6 +18,10 @@
   "homepage": "https://github.com/sheylalex/web-whatsaap-theme#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "socket.io":"1.4.6"
-  }
+    "socket.io": "1.4.6"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {}
 }

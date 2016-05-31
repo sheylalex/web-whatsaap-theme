@@ -4,13 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Title</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/icomoon.css">
+
+	<link rel="stylesheet" href="../css/main.css">
+
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	<style>
 		#bienvenida
-		{
-			border: 1px solid #CCC;
-			margin: 10px;
+		{	width: 45%;
+			height: 25%;
 		}
 		#chat
 		{
@@ -18,57 +21,95 @@
 			border: 1px solid #CCC;
 			display: none;
 		}
+		
 	</style>
 </head>
 <body>
-	<div id="bienvenida" class="well">
-		<h3> ingresa tu nombre para entrar al chat</h3>
+<section class="bienvenida">
+	<div id="bienvenida" class="well well-sm text-center inicio">
+		<button onclick="guardarNombre()"><img class="img-responsive" src="https://33.media.tumblr.com/f2ff332f9c34f8817303020d5b703251/tumblr_inline_o10zhrGmor1rlil4d_500.gif"></button>
+		<h3>Unete a nosotros identificate</h3>
 		<input type="text" id="nombre" class="form-control">
-		<button onclick="guardarNombre()">Entrar</button>
+	</div>
+</section>
 
-		<div
-  		class="fb-like"
-  		data-share="true"
-  		data-width="450"
-  		data-show-faces="true">
+<section>
+<div class="container ventana capa">
+	<div class="row uno capa2">
+		<div class="col-xs-4">
+			<img class="img-responsive pull-left" src="../image/sheyla.jpeg">
+			<i class="icon-dots-three-vertical pull-right"></i>
+			<i class="icon-message pull-right"></i>
 		</div>
-
+		<div class="col-xs-8">
+			<img class="img-responsive pull-left" src="../image/logocodeacademy.png">
+			<p class="pull-left">Laboratoria Peru</p>
+			<i class="icon-dots-three-vertical pull-right"></i>
+			<i class="icon-attachment pull-right"></i>
+		</div>
 	</div>
+	<div class="row dos">
+		<div class="col-md-4 scroll-izq">
+			<div class="input-group">
+      		<input type="text" class="form-control">
+      		<span class="input-group-btn">
+        	<button class="btn btn-default" type="button"><i class="icon-search"></i></button>
+			</span>
+    		</div>
+    		<div>
+    		<ul class="list-group">
+				<li class="list-group-item">
+				<span class="badge">14</span><img src="../image/logocodeacademy.png"><small> Laboratoria Peru</small>
+  				</li>
+  				<li class="list-group-item">
+				<span class="badge">14</span><img src="../image/raymi.jpg"><small> Raymi Saldomando</small>
+  				</li>
+  				<li class="list-group-item">
+				<span class="badge">14</span><img src="../image/mariana.jpg"><small> Mariana Costa</small>
+  				</li>
+  				<li class="list-group-item">
+				<span class="badge">14</span><img src="../image/anamaria.jpg"><small> Ana Maria Martinez franklin</small>
+  				</li>
+  				<li class="list-group-item">
+				<span class="badge">14</span><img src="../image/rodulfo.jpg"><small> Rodulfo Prieto</small>
+  				</li>
+  				<li class="list-group-item">
+				<span class="badge">14</span><img src="../image/andrea.jpg"><small> Andrea Lamas</small>
+  				</li>
+  				<li class="list-group-item">
+				<span class="badge">14</span><img src="../image/mariapaula.jpg"><small> Maria Paula Rivarola</small>
+  				</li>
+  				<li class="list-group-item">
+				<span class="badge">14</span><img src="../image/katy.jpg"><small> Katy Sanchez</small>
+  				</li>
+  				<li class="list-group-item">
+				<span class="badge">14</span><img src="../image/aldo.jpg"><small> Aldo Alfaro</small>
+  				</li>
+			</ul>
+			</div>
 
-	
-	<div id="chat" class="well">
-		<h1>Bienvenid@ a mi super chat</h1>
-		<p>Solo puedes envíar mensajes, en una siguiente versión también lo verás!!</p>
-		<input type="text" id="mensaje" class="form-control">
-		<button onclick="enviarMensaje()">Enviar mensaje</button>
-		<button onclick="limpiarMensajes()">Limpiar mensajes</button>
-		<ul id="lista_mensajes" class="list-group"></ul>
-
-		<p>
-			<small style="font-size:10px;">Si haces uso de este chat aceptas eliminar los break's por el resto de tu vida</small>
-		</p>
+		</div>
+		<div class="col-md-8">
+			<div class="scroll-der">
+				<h1>hol</h1>
+			</div>
+			<div class="row interna">
+				<div id="chat" class="well">
+				<h1 class="text-center">Bienvenid@ a mi chat</h1>
+				<input type="text" id="mensaje" class="form-control">
+				<button onclick="enviarMensaje()">Enviar mensaje</button>
+				<button onclick="limpiarMensajes()">Limpiar mensajes</button>
+				<ul id="lista_mensajes" class="list-group"></ul>
+				<small>Sheyla</small>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 
+
+</section>
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '592110360965938',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-
-	<script>
 		var socket = io('/');
 		var nombre;
 		function guardarNombre()
@@ -91,6 +132,6 @@
 		{
 			$('#lista_mensajes').append('<li class="list-group-item">' + _msg + '</li>');
 		});
-	</script>
+</script>
 </body>
 </html>

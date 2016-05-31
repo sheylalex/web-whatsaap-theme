@@ -1,0 +1,12 @@
+.fondo-portfolio {
+  background-color: #F0F0F0;
+}
+
+.portafolio {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.fondo-portfolio .thumbnail {
+  padding: 0;
+}

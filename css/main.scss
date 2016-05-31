@@ -1,0 +1,60 @@
+// *{outline:1px solid rgba(255,0,0,0.4);}
+
+$letra: georgia,serif;
+
+body{
+	background: url(https://awesomewallpaper.files.wordpress.com/2013/04/81856.jpg);
+	background-size:100%;	
+}
+.row{border: 2px solid #234E79;}
+.col{border: 2px solid #234E79;}
+
+.inicio{
+	margin:15% 0 0 25%;	
+}
+.bienvenida{.well{
+	background-color: rgba(0, 0, 0, 0.2);
+	border:none;
+	img{width: 200px;height: 200px;border-radius:0%;}
+	button{padding:0;border:0}
+	h3{color:red;font-family:$letra;}
+}}
+// comienza el chat
+.capa{
+	background-color: rgba(9, 22, 37, 0.5);
+	height: auto;
+}
+.capa2{
+	background-color: rgba(255, 8, 0, 0.2);
+	}
+.ventana{
+	margin-top:1%;
+	// border: 2px solid #234E79;
+}
+.uno{
+	p{color:white;padding-top:3%;}
+	img{width:80px;height:80px;border-radius:100%;}
+	i{color:white;font-size:20px;padding:25px 10px;}
+}
+.dos{
+	ul{img{width:35px;height:35px;border-radius:100%;}}	
+}
+.scroll-izq{
+	height:500px;
+	overflow-y: scroll;
+}
+.scroll-der{
+	height:300px;
+	overflow-y: scroll;
+}
+.interna{
+	.well{
+	background-color:rgba(0, 0, 0, 0.2);
+	margin:0;}
+	h1{color:white;}
+	p{color:white;}
+	small{color:white;}
+	button{}
+
+}
+
